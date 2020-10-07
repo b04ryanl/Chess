@@ -1,0 +1,21 @@
+C:\Users\user\source\repos\LabAjedrez\LabAjedrez\bin\Debug\LabAjedrez.exe.config
+C:\Users\user\source\repos\LabAjedrez\LabAjedrez\bin\Debug\LabAjedrez.exe
+C:\Users\user\source\repos\LabAjedrez\LabAjedrez\bin\Debug\LabAjedrez.pdb
+C:\Users\user\source\repos\LabAjedrez\LabAjedrez\obj\Debug\LabAjedrez.csprojAssemblyReference.cache
+C:\Users\user\source\repos\LabAjedrez\LabAjedrez\obj\Debug\LabAjedrez.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\LabAjedrez\LabAjedrez\obj\Debug\LabAjedrez.exe
+C:\Users\user\source\repos\LabAjedrez\LabAjedrez\obj\Debug\LabAjedrez.pdb
+C:\Users\user\Desktop\lab ajedrez\bin\Debug\LabAjedrez.exe.config
+C:\Users\user\Desktop\lab ajedrez\bin\Debug\LabAjedrez.exe
+C:\Users\user\Desktop\lab ajedrez\bin\Debug\LabAjedrez.pdb
+C:\Users\user\Desktop\lab ajedrez\obj\Debug\LabAjedrez.csprojAssemblyReference.cache
+C:\Users\user\Desktop\lab ajedrez\obj\Debug\LabAjedrez.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\lab ajedrez\obj\Debug\LabAjedrez.exe
+C:\Users\user\Desktop\lab ajedrez\obj\Debug\LabAjedrez.pdb
+D:\Downloads\Ajedrez\bin\Debug\LabAjedrez.exe.config
+D:\Downloads\Ajedrez\bin\Debug\LabAjedrez.exe
+D:\Downloads\Ajedrez\bin\Debug\LabAjedrez.pdb
+D:\Downloads\Ajedrez\obj\Debug\LabAjedrez.csprojAssemblyReference.cache
+D:\Downloads\Ajedrez\obj\Debug\LabAjedrez.csproj.CoreCompileInputs.cache
+D:\Downloads\Ajedrez\obj\Debug\LabAjedrez.exe
+D:\Downloads\Ajedrez\obj\Debug\LabAjedrez.pdb
