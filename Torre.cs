@@ -6,20 +6,126 @@ using System.Threading.Tasks;
 
 namespace LabAjedrez
 {
-    class Torre:Ficha
+    class Torre
     {
-        public Torre(Posicion posini, ConsoleColor colorini) : base(posini, colorini)
+        public ConsoleColor color;
+        public char posicionL;
+        public int posicionN;
+        public Torre(char PosicionL, int PosicionN, ConsoleColor Color)
         {
-            posicion = posini;
-            color = colorini;
+            color = Color;
+            posicionL = PosicionL;
+            posicionN = PosicionN;
+
         }
 
-        public override void pintar()
-        {
-            Console.BackgroundColor = ConsoleColor.Black;
-            int x = 2 + (posicion.x * 14 + 5);
-            int y = 1 + (posicion.y * 10 + 3);
 
+        public void PintarTorre()
+        {
+            int x = 0;
+            int y = 0;
+
+            switch (posicionL)
+            {
+                case 'A':
+                    x = 7;
+                    break;
+                case 'B':
+                    x = 22;
+                    break;
+                case 'C':
+                    x = 37;
+                    break;
+                case 'D':
+                    x = 52;
+                    break;
+                case 'E':
+                    x = 67;
+                    break;
+                case 'F':
+                    x = 82;
+                    break;
+                case 'G':
+                    x = 97;
+                    break;
+                case 'H':
+                    x = 112;
+                    break;
+            }
+
+
+            switch (posicionN)
+            {
+                case 1:
+                    y = 5;
+                    break;
+                case 2:
+                    y = 16;
+                    break;
+                case 3:
+                    y = 26;
+                    break;
+                case 4:
+                    y = 37;
+                    break;
+                case 5:
+                    y = 48;
+                    break;
+                case 6:
+                    y = 59;
+                    break;
+                case 7:
+                    y = 70;
+                    break;
+                case 8:
+                    y = 81;
+                    break;
+
+
+                    //case 9:
+                    //    y = 70;
+                    //    break;
+                    //case 10:
+                    //    y = 59;
+                    //    break;
+                    //case 11:
+                    //    y = 48;
+                    //    break;
+                    //case 12:
+                    //    y = 37;
+                    //    break;
+                    //case 13:
+                    //    y = 26;
+                    //    break;
+                    //case 14:
+                    //    y = 15;
+                    //    break;
+                    //case 15:
+                    //    y = 5;
+                    //    break;
+                    //case 16:
+                    //    y = 1;
+                    //    break;
+            }
+            Console.SetCursorPosition(x , y);
+            Console.ForegroundColor = color;
+            Console.WriteLine(" ▄▄▄ ");
+
+            //Console.SetCursorPosition(x, y);
+            //Console.ForegroundColor = color;
+            //Console.WriteLine("▄▄▄▄▄");
+
+            Console.SetCursorPosition(x, y + 1);
+            Console.ForegroundColor = color;
+            Console.WriteLine("  █  ");
+
+            Console.SetCursorPosition(x, y + 2);
+            Console.ForegroundColor = color;
+            Console.WriteLine(" ▄▄▄ ");
+        }
+
+        public void PintarTorre2(int x, int y, ConsoleColor color)
+        {
             Console.SetCursorPosition(x, y);
             Console.ForegroundColor = color;
             Console.WriteLine(" ▄▄▄ ");
@@ -32,150 +138,5 @@ namespace LabAjedrez
             Console.ForegroundColor = color;
             Console.WriteLine(" ▄▄▄ ");
         }
-
-        public override List<Posicion> obtenermovs(Tablero tablaAlizar)
-        {
-            List<Posicion> resultado = new List<Posicion>();
-
-            if (color == ConsoleColor.White)
-            {
-                //J1
-                for (int i = posicion.x+1; i < 8; i++) // derecha
-                {
-                    if (tablaAlizar.buscarficha(new Posicion(i, posicion.y)) == null)
-                    {
-                        resultado.Add(new Posicion(i, posicion.y));
-                    }
-                    else
-                    {
-                        if (tablaAlizar.buscarfichaJ2(new Posicion(i, posicion.y)) != null)
-                        {
-                            resultado.Add(new Posicion(i, posicion.y));
-                        }
-                        break;
-                    }
-                }
-                ///////////////////////////////////////////////////////////////
-                for (int i = posicion.y + 1; i < 8; i++) // abajo
-                {
-                    if (tablaAlizar.buscarficha(new Posicion(posicion.x, i)) == null)
-                    {
-                        resultado.Add(new Posicion(posicion.x, i));
-                    }
-                    else
-                    {
-                        if (tablaAlizar.buscarfichaJ2(new Posicion(posicion.x, i)) != null)
-                        {
-                            resultado.Add(new Posicion(posicion.x, i));
-                        }
-                        break;
-                    }
-                }
-                ///////////////////////////////////////////////////////////////////
-                for (int i = posicion.x - 1; i >= 0; i--) // izquierda
-                {
-                    if (tablaAlizar.buscarficha(new Posicion(i, posicion.y)) == null)
-                    {
-                        resultado.Add(new Posicion(i, posicion.y));
-                    }
-                    else
-                    {
-                        if (tablaAlizar.buscarfichaJ2(new Posicion(i, posicion.y)) != null)
-                        {
-                            resultado.Add(new Posicion(i, posicion.y));
-                        }
-                        break;
-                    }
-                }
-                ///////////////////////////////////////////////////////////////
-                for (int i = posicion.y - 1; i >= 0; i--) // arriba
-                {
-                    if (tablaAlizar.buscarficha(new Posicion(posicion.x, i)) == null)
-                    {
-                        resultado.Add(new Posicion(posicion.x, i));
-                    }
-                    else
-                    {
-                        if (tablaAlizar.buscarfichaJ2(new Posicion(posicion.x, i)) != null)
-                        {
-                            resultado.Add(new Posicion(posicion.x, i));
-                        }
-                        break;
-                    }
-                }
-
-            }
-            else
-            {
-                //J2
-                for (int i = posicion.x + 1; i < 8; i++) // derecha
-                {
-                    if (tablaAlizar.buscarficha(new Posicion(i, posicion.y)) == null)
-                    {
-                        resultado.Add(new Posicion(i, posicion.y));
-                    }
-                    else
-                    {
-                        if (tablaAlizar.buscarfichaJ1(new Posicion(i, posicion.y)) != null)
-                        {
-                            resultado.Add(new Posicion(i, posicion.y));
-                        }
-                        break;
-                    }
-                }
-                ///////////////////////////////////////////////////////////////
-                for (int i = posicion.y + 1; i < 8; i++) // abajo
-                {
-                    if (tablaAlizar.buscarficha(new Posicion(posicion.x, i)) == null)
-                    {
-                        resultado.Add(new Posicion(posicion.x, i));
-                    }
-                    else
-                    {
-                        if (tablaAlizar.buscarfichaJ1(new Posicion(posicion.x, i)) != null)
-                        {
-                            resultado.Add(new Posicion(posicion.x, i));
-                        }
-                        break;
-                    }
-                }
-                ///////////////////////////////////////////////////////////////////
-                for (int i = posicion.x - 1; i >= 0; i--) // izquierda
-                {
-                    if (tablaAlizar.buscarficha(new Posicion(i, posicion.y)) == null)
-                    {
-                        resultado.Add(new Posicion(i, posicion.y));
-                    }
-                    else
-                    {
-                        if (tablaAlizar.buscarfichaJ1(new Posicion(i, posicion.y)) != null)
-                        {
-                            resultado.Add(new Posicion(i, posicion.y));
-                        }
-                        break;
-                    }
-                }
-                ///////////////////////////////////////////////////////////////
-                for (int i = posicion.y - 1; i >= 0; i--) // arriba
-                {
-                    if (tablaAlizar.buscarficha(new Posicion(posicion.x, i)) == null)
-                    {
-                        resultado.Add(new Posicion(posicion.x, i));
-                    }
-                    else
-                    {
-                        if (tablaAlizar.buscarfichaJ1(new Posicion(posicion.x, i)) != null)
-                        {
-                            resultado.Add(new Posicion(posicion.x, i));
-                        }
-                        break;
-                    }
-                }
-            }
-            return resultado;
-
-        }
-
-
     }
 }

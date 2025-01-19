@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LabAjedrez
 {
-    public class Posicion
+    class Posicion
     {
         public int x;
         public int y;

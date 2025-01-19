@@ -6,23 +6,90 @@ using System.Threading.Tasks;
 
 namespace LabAjedrez
 {
-    class Caballo:Ficha
+    class Caballo
     {
-        public Caballo(Posicion posini, ConsoleColor colorini) : base(posini, colorini)
+        ConsoleColor color;
+        public char posicionL;
+        public int posicionN;
+        public Caballo(char PosicionL, int PosicionN, ConsoleColor Color)
         {
-            posicion = posini;
-            color = colorini;
+            color = Color;
+            posicionL = PosicionL;
+            posicionN = PosicionN;
+
         }
 
-        public override void pintar()
-        {
-            Console.BackgroundColor = ConsoleColor.Black;
-            int x = 2 + (posicion.x * 14 + 5);
-            int y = 1 + (posicion.y * 10 + 3);
 
-            Console.SetCursorPosition(x + 1, y);
+        public void PintarCaballo()
+        {
+            int x = 0;
+            int y = 0;
+
+            switch (posicionL)
+            {
+
+                case 'A':
+                    x = 7;
+                    break;
+                case 'B':
+                    x = 22;
+                    break;
+                case 'C':
+                    x = 37;
+                    break;
+                case 'D':
+                    x = 52;
+                    break;
+                case 'E':
+                    x = 67;
+                    break;
+                case 'F':
+                    x = 82;
+                    break;
+                case 'G':
+                    x = 97;
+                    break;
+                case 'H':
+                    x = 112;
+                    break;
+            }
+
+
+            switch (posicionN)
+            {
+                case 1:
+                    y = 5;
+                    break;
+                case 2:
+                    y = 16;
+                    break;
+                case 3:
+                    y = 26;
+                    break;
+                case 4:
+                    y = 37;
+                    break;
+                case 5:
+                    y = 48;
+                    break;
+                case 6:
+                    y = 59;
+                    break;
+                case 7:
+                    y = 70;
+                    break;
+                case 8:
+                    y = 81;
+                    break;
+
+            }
+            Console.SetCursorPosition(x+1, y);
             Console.ForegroundColor = color;
             Console.WriteLine("  ▄  ");
+
+            //Console.SetCursorPosition(x, y);
+            //Console.ForegroundColor = color;
+            //Console.WriteLine("▄▄▄▄▄");
 
             Console.SetCursorPosition(x, y + 1);
             Console.ForegroundColor = color;
@@ -33,278 +100,24 @@ namespace LabAjedrez
             Console.WriteLine(" ▄▄▄ ");
         }
 
-        public override List<Posicion> obtenermovs(Tablero tablaAlizar)
+        public void PintarCaballo2(int x, int y, ConsoleColor color)
         {
-            List<Posicion> resultado = new List<Posicion>();
+            Console.SetCursorPosition(x + 1, y);
+            Console.ForegroundColor = color;
+            Console.WriteLine("  ▄  ");
 
-            if (color == ConsoleColor.White)
-            {
-                //J1
-                if (tablaAlizar.buscarficha(new Posicion(posicion.x+1, posicion.y - 2)) == null)//arriba-derecha
-                {
-                    if (posicion.x + 1 < 8 && posicion.y - 2 >=0)
-                    {
-                        resultado.Add(new Posicion(posicion.x + 1, posicion.y - 2));
-                    }
-                }
-                else
-                {
-                    if(tablaAlizar.buscarfichaJ2(new Posicion(posicion.x + 1, posicion.y - 2)) != null)
-                    {
-                        resultado.Add(new Posicion(posicion.x + 1, posicion.y - 2));
-                    }
-                }
+            //Console.SetCursorPosition(x, y);
+            //Console.ForegroundColor = color;
+            //Console.WriteLine("▄▄▄▄▄");
 
-                /////////////////////////////////////////////////////////////////////////////////
-                if (tablaAlizar.buscarficha(new Posicion(posicion.x-1, posicion.y - 2)) == null)//arriba-izquierda
-                {
-                    if (posicion.x - 1 >= 0 && posicion.y - 2 >= 0)
-                    {
-                        resultado.Add(new Posicion(posicion.x - 1, posicion.y - 2));
-                    }
-                }
-                else
-                {
-                    if (tablaAlizar.buscarfichaJ2(new Posicion(posicion.x - 1, posicion.y - 2)) != null)
-                    {
-                        resultado.Add(new Posicion(posicion.x - 1, posicion.y - 2));
-                    }
-                }
+            Console.SetCursorPosition(x, y + 1);
+            Console.ForegroundColor = color;
+            Console.WriteLine("  █  ");
 
-                /////////////////////////////////////////////////////////////////////////////////
-                if (tablaAlizar.buscarficha(new Posicion(posicion.x + 2, posicion.y - 1)) == null)//derecha-arriba
-                {
-                    if (posicion.x +2 < 8 && posicion.y - 1 >= 0)
-                    {
-                        resultado.Add(new Posicion(posicion.x + 2, posicion.y - 1));
-                    }
-                }
-                else
-                {
-                    if (tablaAlizar.buscarfichaJ2(new Posicion(posicion.x + 2, posicion.y - 1)) != null)
-                    {
-                        resultado.Add(new Posicion(posicion.x +2, posicion.y - 1));
-                    }
-                }
-
-                /////////////////////////////////////////////////////////////////////////////////
-                if (tablaAlizar.buscarficha(new Posicion(posicion.x + 2, posicion.y + 1)) == null)//derecha-abajo
-                {
-                    if (posicion.x + 2 < 8 && posicion.y + 1 < 8)
-                    {
-                        resultado.Add(new Posicion(posicion.x + 2, posicion.y + 1));
-                    }
-                }
-                else
-                {
-                    if (tablaAlizar.buscarfichaJ2(new Posicion(posicion.x + 2, posicion.y + 1)) != null)
-                    {
-                        resultado.Add(new Posicion(posicion.x + 2, posicion.y + 1));
-                    }
-                }
-
-                /////////////////////////////////////////////////////////////////////////////////
-                if (tablaAlizar.buscarficha(new Posicion(posicion.x - 2, posicion.y - 1)) == null)//izquierda-arriba
-                {
-                    if (posicion.x - 2 >=0 && posicion.y - 1 >= 0)
-                    {
-                        resultado.Add(new Posicion(posicion.x - 2, posicion.y - 1));
-                    }
-                }
-                else
-                {
-                    if (tablaAlizar.buscarfichaJ2(new Posicion(posicion.x - 2, posicion.y - 1)) != null)
-                    {
-                        resultado.Add(new Posicion(posicion.x - 2, posicion.y - 1));
-                    }
-                }
-
-                /////////////////////////////////////////////////////////////////////////////////
-                if (tablaAlizar.buscarficha(new Posicion(posicion.x - 2, posicion.y + 1)) == null)//izquierda-abajo
-                {
-                    if (posicion.x - 2 >=0 && posicion.y + 1 < 8)
-                    {
-                        resultado.Add(new Posicion(posicion.x - 2, posicion.y + 1));
-                    }
-                }
-                else
-                {
-                    if (tablaAlizar.buscarfichaJ2(new Posicion(posicion.x - 2, posicion.y + 1)) != null)
-                    {
-                        resultado.Add(new Posicion(posicion.x - 2, posicion.y + 1));
-                    }
-                }
-
-                ///////////////////////////////////////////////////////////////////////////////////
-                if (tablaAlizar.buscarficha(new Posicion(posicion.x + 1, posicion.y + 2)) == null)//abajo-derecha
-                {
-                    if (posicion.x + 1 < 8 && posicion.y + 2 < 8)
-                    {
-                        resultado.Add(new Posicion(posicion.x + 1, posicion.y + 2));
-                    }
-                }
-                else
-                {
-                    if (tablaAlizar.buscarfichaJ2(new Posicion(posicion.x + 1, posicion.y + 2)) != null)
-                    {
-                        resultado.Add(new Posicion(posicion.x + 1, posicion.y + 2));
-                    }
-                }
-
-                /////////////////////////////////////////////////////////////////////////////////
-                if (tablaAlizar.buscarficha(new Posicion(posicion.x - 1, posicion.y + 2)) == null)//abajo-izquierda
-                {
-                    if (posicion.x - 1 >= 0 && posicion.y + 2 < 8)
-                    {
-                        resultado.Add(new Posicion(posicion.x - 1, posicion.y + 2));
-                    }
-                }
-                else
-                {
-                    if (tablaAlizar.buscarfichaJ2(new Posicion(posicion.x - 1, posicion.y + 2)) != null)
-                    {
-                        resultado.Add(new Posicion(posicion.x - 1, posicion.y + 2));
-                    }
-                }
-
-
-            }
-            else
-            {
-                //J2
-                if (tablaAlizar.buscarficha(new Posicion(posicion.x + 1, posicion.y - 2)) == null)//arriba-derecha
-                {
-                    if (posicion.x + 1 < 8 && posicion.y - 2 >= 0)
-                    {
-                        resultado.Add(new Posicion(posicion.x + 1, posicion.y - 2));
-                    }
-                }
-                else
-                {
-                    if (tablaAlizar.buscarfichaJ1(new Posicion(posicion.x + 1, posicion.y - 2)) != null)
-                    {
-                        resultado.Add(new Posicion(posicion.x + 1, posicion.y - 2));
-                    }
-                }
-
-                /////////////////////////////////////////////////////////////////////////////////
-                if (tablaAlizar.buscarficha(new Posicion(posicion.x - 1, posicion.y - 2)) == null)//arriba-izquierda
-                {
-                    if (posicion.x - 1 >= 0 && posicion.y - 2 >= 0)
-                    {
-                        resultado.Add(new Posicion(posicion.x - 1, posicion.y - 2));
-                    }
-                }
-                else
-                {
-                    if (tablaAlizar.buscarfichaJ1(new Posicion(posicion.x - 1, posicion.y - 2)) != null)
-                    {
-                        resultado.Add(new Posicion(posicion.x - 1, posicion.y - 2));
-                    }
-                }
-
-                /////////////////////////////////////////////////////////////////////////////////
-                if (tablaAlizar.buscarficha(new Posicion(posicion.x + 2, posicion.y - 1)) == null)//derecha-arriba
-                {
-                    if (posicion.x + 2 < 8 && posicion.y - 1 >= 0)
-                    {
-                        resultado.Add(new Posicion(posicion.x + 2, posicion.y - 1));
-                    }
-                }
-                else
-                {
-                    if (tablaAlizar.buscarfichaJ1(new Posicion(posicion.x + 2, posicion.y - 1)) != null)
-                    {
-                        resultado.Add(new Posicion(posicion.x + 2, posicion.y - 1));
-                    }
-                }
-
-                /////////////////////////////////////////////////////////////////////////////////
-                if (tablaAlizar.buscarficha(new Posicion(posicion.x + 2, posicion.y + 1)) == null)//derecha-abajo
-                {
-                    if (posicion.x + 2 < 8 && posicion.y + 1 < 8)
-                    {
-                        resultado.Add(new Posicion(posicion.x + 2, posicion.y + 1));
-                    }
-                }
-                else
-                {
-                    if (tablaAlizar.buscarfichaJ1(new Posicion(posicion.x + 2, posicion.y + 1)) != null)
-                    {
-                        resultado.Add(new Posicion(posicion.x + 2, posicion.y + 1));
-                    }
-                }
-
-                /////////////////////////////////////////////////////////////////////////////////
-                if (tablaAlizar.buscarficha(new Posicion(posicion.x - 2, posicion.y - 1)) == null)//izquierda-arriba
-                {
-                    if (posicion.x - 2 >= 0 && posicion.y - 1 >= 0)
-                    {
-                        resultado.Add(new Posicion(posicion.x - 2, posicion.y - 1));
-                    }
-                }
-                else
-                {
-                    if (tablaAlizar.buscarfichaJ1(new Posicion(posicion.x - 2, posicion.y - 1)) != null)
-                    {
-                        resultado.Add(new Posicion(posicion.x - 2, posicion.y - 1));
-                    }
-                }
-
-                /////////////////////////////////////////////////////////////////////////////////
-                if (tablaAlizar.buscarficha(new Posicion(posicion.x - 2, posicion.y + 1)) == null)//izquierda-abajo
-                {
-                    if (posicion.x - 2 >= 0 && posicion.y + 1 < 8)
-                    {
-                        resultado.Add(new Posicion(posicion.x - 2, posicion.y + 1));
-                    }
-                }
-                else
-                {
-                    if (tablaAlizar.buscarfichaJ1(new Posicion(posicion.x - 2, posicion.y + 1)) != null)
-                    {
-                        resultado.Add(new Posicion(posicion.x - 2, posicion.y + 1));
-                    }
-                }
-
-                ///////////////////////////////////////////////////////////////////////////////////
-                if (tablaAlizar.buscarficha(new Posicion(posicion.x + 1, posicion.y + 2)) == null)//abajo-derecha
-                {
-                    if (posicion.x + 1 < 8 && posicion.y + 2 < 8)
-                    {
-                        resultado.Add(new Posicion(posicion.x + 1, posicion.y + 2));
-                    }
-                }
-                else
-                {
-                    if (tablaAlizar.buscarfichaJ1(new Posicion(posicion.x + 1, posicion.y + 2)) != null)
-                    {
-                        resultado.Add(new Posicion(posicion.x + 1, posicion.y + 2));
-                    }
-                }
-
-                /////////////////////////////////////////////////////////////////////////////////
-                if (tablaAlizar.buscarficha(new Posicion(posicion.x - 1, posicion.y + 2)) == null)//abajo-izquierda
-                {
-                    if (posicion.x - 1 >= 0 && posicion.y + 2 < 8)
-                    {
-                        resultado.Add(new Posicion(posicion.x - 1, posicion.y + 2));
-                    }
-                }
-                else
-                {
-                    if (tablaAlizar.buscarfichaJ1(new Posicion(posicion.x - 1, posicion.y + 2)) != null)
-                    {
-                        resultado.Add(new Posicion(posicion.x - 1, posicion.y + 2));
-                    }
-                }
-
-            }
-            return resultado;
-
+            Console.SetCursorPosition(x, y + 2);
+            Console.ForegroundColor = color;
+            Console.WriteLine(" ▄▄▄ ");
         }
-
-
     }
 }
 

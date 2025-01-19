@@ -12,10 +12,10 @@ C:\Users\user\Desktop\lab ajedrez\obj\Debug\LabAjedrez.csprojAssemblyReference.c
 C:\Users\user\Desktop\lab ajedrez\obj\Debug\LabAjedrez.csproj.CoreCompileInputs.cache
 C:\Users\user\Desktop\lab ajedrez\obj\Debug\LabAjedrez.exe
 C:\Users\user\Desktop\lab ajedrez\obj\Debug\LabAjedrez.pdb
-D:\Downloads\Ajedrez\bin\Debug\LabAjedrez.exe.config
-D:\Downloads\Ajedrez\bin\Debug\LabAjedrez.exe
-D:\Downloads\Ajedrez\bin\Debug\LabAjedrez.pdb
-D:\Downloads\Ajedrez\obj\Debug\LabAjedrez.csprojAssemblyReference.cache
-D:\Downloads\Ajedrez\obj\Debug\LabAjedrez.csproj.CoreCompileInputs.cache
-D:\Downloads\Ajedrez\obj\Debug\LabAjedrez.exe
-D:\Downloads\Ajedrez\obj\Debug\LabAjedrez.pdb
+C:\Users\bryan\OneDrive\Desktop\Me\Ajedrez\Ajedrez\bin\Debug\LabAjedrez.exe.config
+C:\Users\bryan\OneDrive\Desktop\Me\Ajedrez\Ajedrez\bin\Debug\LabAjedrez.exe
+C:\Users\bryan\OneDrive\Desktop\Me\Ajedrez\Ajedrez\bin\Debug\LabAjedrez.pdb
+C:\Users\bryan\OneDrive\Desktop\Me\Ajedrez\Ajedrez\obj\Debug\LabAjedrez.csproj.AssemblyReference.cache
+C:\Users\bryan\OneDrive\Desktop\Me\Ajedrez\Ajedrez\obj\Debug\LabAjedrez.csproj.CoreCompileInputs.cache
+C:\Users\bryan\OneDrive\Desktop\Me\Ajedrez\Ajedrez\obj\Debug\LabAjedrez.exe
+C:\Users\bryan\OneDrive\Desktop\Me\Ajedrez\Ajedrez\obj\Debug\LabAjedrez.pdb
